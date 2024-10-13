@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="styles3.css" />
+    <script>
+        function created() {
+            var pas1 = document.getElementById("password1").value;
+            var pas2 = document.getElementById("password2").value;
+            var username = document.getElementById("username").value;
+
+            if (username.trim() === "") {
+                alert("Enter username");
+                return false; // Prevent form submission
+            } else if (pas1 === "" || pas2 === "") {
+                alert("Enter password");
+                return false; // Prevent form submission
+            } else if (pas1 === pas2) {
+                return true; // Allow form submission
+            } else {
+                alert("Passwords didn't match");
+                return false; // Prevent form submission
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="form-wrapper">
+            <h2 style="text-align:center;">Create an Account</h2>
+            <form id="createAccountForm" action="Createaccount.php" method="post" onsubmit="return created();">
+                <label for="username">Enter Username:</label>
+                <input type="text" id="username" name="username"><br><br>
+                <label for="password1">Create Password:</label>
+                <input type="password" id="password1" name="password"><br><br>
+                <label for="password2">Re-Enter Password:</label>
+                <input type="password" id="password2" name="confirm-password"><br><br>
+                <center>
+                    <input type="submit" value="Create">
+                    <input type="reset" value="Clear">
+                </center>
+            </form>
+            <p style="text-align: center;">Already have an account? <a href=" User.html">Login</a></p>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-box">
+            <div class="footer-header">
+                <h3>Write to Us</h3>
+            </div>
+            <div class="footer-content">
+                <p class="footer-info">
+                    INFO: <a class="footer-link" href="mailto:RajHotel123@gmail.com">RajHotel123@gmail.com</a> /
+                    <a class="footer-link" href="tel:9018759973">9018759973</a>
+                </p>
+                <p class="footer-helpdesk">
+                    Helpdesk websites, email, domains: <a class="footer-link"
+                        href="mailto:assist@Rajhotels.com">mailto:assist@Rajhotels.com</a>
+                </p>
+                <p class="footer-helpdesk">
+                    Helpdesk booking engine: <a class="footer-link"
+                        href="mailto:helpdesk@Rajhotels..com">helpdesk@Rajhotels..com</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

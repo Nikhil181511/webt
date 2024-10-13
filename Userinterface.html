@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-repeat: no-repeat;
+        }
+
+        .background {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two columns */
+            height: 100%;
+        }
+
+        .image {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .image2 {
+            background-image: url('4.jpg');
+        }
+
+        .image3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 100%;
+        }
+
+        .image3-left {
+            background-image: url('5.jpg');
+            background-size: cover;
+        }
+
+        .image3-right {
+            background-image: url('7.jpg');
+            background-size: cover;
+        }
+
+        .image4 {
+            background-image: url('6.jpg');
+            background-size: cover;
+        }
+
+        .right-side {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            height: 100%;
+        }
+
+        .container {
+            width: 60%;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.768); /* Adjust opacity for transparency */
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        h1 {
+            text-align: center;
+            color: #242323;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group select,
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #9b9999;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            color: #f5f5f5;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #050d16;
+            color: #ffffff;
+        }
+
+        .message {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .error {
+            color: #dc3545; /* Red color for error */
+        }
+
+        .success {
+            color: #28a745; /* Green color for success */
+        }
+
+        .cost-display {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+    footer {
+        padding-top: 2px;
+    text-align: center;
+}
+
+.footer-box {
+    padding-top: 20px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-header h3 {
+    margin-top: 0;
+    color: #000;
+}
+
+.footer-content {
+    margin: 20px 0;
+}
+
+.footer-info,
+.footer-helpdesk {
+    margin: 10px 0;
+}
+
+.footer-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+.footer-cta {
+    margin-top: 20px;
+}
+
+.footer-cta h4 {
+    margin: 10px 0;
+    color: #000;
+}
+
+.footer-cta a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.footer-cta a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="image image2"></div>
+        <div class="right-side">
+            <div class="image image3">
+                <div class="image image3-left"></div>
+                <div class="image image3-right"></div>
+            </div>
+            <div class="image image4"></div>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Hotel Booking Form</h1>
+        <form id="bookingForm" action="submit_booking.php" method="POST">
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="room">Select Room:</label>
+                <select id="room" name="room" required onchange="calculateCost()">
+                    <option value="">-- Select a Room --</option>
+                    <option value="1" data-cost="2000">Single Room (Rs. 2000/day)</option>
+                    <option value="2" data-cost="4000">Double Room (Rs. 4000/day)</option>
+                    <option value="3" data-cost="6000">Suite (Rs. 6000/day)</option>
+                </select>
+            </div>                     
+            <div class="form-group">
+                <label for="bookingDate">Date of Booking:</label>
+                <input type="date" id="bookingDate" name="bookingDate" required>
+            </div>
+            <div class="form-group">
+                <label for="bookingDate">Number of day:</label>
+                <input type="number"  id="No_Date" name="No_Date"  required>
+            </div>
+            <div class="form-group">
+                <label for="numPeople">Number of People:</label>
+                <input type="number" id="numPeople" name="numPeople" min="1" value="1" required onchange="calculateCost()">
+            </div>
+            <div class="form-group">
+                <label>Additional Services(Per Person):</label>
+                <div>
+                    <input type="checkbox" id="spa" name="spa" value="spa" onchange="calculateCost()">
+                    <label for="spa">Spa (Rs. 1000)</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="breakfast" name="breakfast" value="breakfast" onchange="calculateCost()">
+                    <label for="breakfast">Breakfast (Rs. 500)</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Additional Requests or Comments:</label>
+                <textarea id="comments" name="comments" rows="4"></textarea>
+            </div>
+            
+            <div class="cost-display" id="costDisplay">Total Cost: Rs. 0</div>
+            <button type="submit"><b>Submit Booking</b></button>
+            <div id="message" class="message"></div>
+        </form>
+    </div>
+    <script>
+        function calculateCost() {
+            // Get room cost
+            const roomSelect = document.getElementById('room');
+            const selectedOption = roomSelect.options[roomSelect.selectedIndex];
+            const roomCost = parseFloat(selectedOption.getAttribute('data-cost')) || 0;
+            //Get no of days
+            const noday = parseInt(document.getElementById('No_Date').value) || 1;
+            // Get additional services cost
+            const spaCost = document.getElementById('spa').checked ? 1000 : 0;
+            const breakfastCost = document.getElementById('breakfast').checked ? 500 : 0;
+
+            // Get number of people
+            const numPeople = parseInt(document.getElementById('numPeople').value) || 1;
+
+            // Add Rs. 1000 per person
+            const perPersonCost = spaCost*numPeople+breakfastCost*numPeople;
+
+            // Calculate total cost
+            const totalCost = roomCost*noday + perPersonCost;
+
+            // Display total cost
+            document.getElementById('costDisplay').textContent = `Total Cost: Rs. ${totalCost}`;
+        }
+    </script>
+      <footer>
+        <div class="footer-box">
+            <div class="footer-header">
+                <h3>Write to Us</h3>
+            </div>
+            <div class="footer-content">
+                <p class="footer-info">
+                    INFO: <a class="footer-link" href="mailto:RajHotel123@gmail.com">RajHotel123@gmail.com</a> /
+                    <a class="footer-link" href="tel:9018759973">9018759973</a>
+                </p>
+                <p class="footer-helpdesk">
+                    Helpdesk websites, email, domains: <a class="footer-link"
+                        href="mailto:assist@Rajhotels.com">mailto:assist@Rajhotels.com</a>
+                </p>
+                <p class="footer-helpdesk">
+                    Helpdesk booking engine: <a class="footer-link"
+                        href="mailto:helpdesk@Rajhotels..com">helpdesk@Rajhotels..com</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

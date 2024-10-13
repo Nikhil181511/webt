@@ -1,0 +1,122 @@
+body {
+    display: flex;
+    flex-direction: column; /* Allow vertical stacking */
+    min-height: 100vh; /* Ensure body takes at least full viewport height */
+    margin: 0;
+    background-image: url("3.jpg");
+    background-size: cover; /* Ensure the background image covers the whole page */
+    background-position: center; /* Center the background image */
+}
+
+.container {
+    flex: 1; /* Allow the container to grow and fill the available space */
+    display: flex;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    padding: 30px; /* Increased padding */
+}
+
+.form-wrapper {
+background: rgba(255, 255, 255, 0.768); /* Adjust opacity for transparency */
+backdrop-filter: blur(10px); /* Add blur effect */
+padding: 40px; /* Increased padding for the form */
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.767); /* Adjusted shadow for depth */
+width: 100%; /* Full width for responsive design */
+max-width: 400px; /* Maximum width for larger screens */
+height: 500px;
+/* Center text inside the container */
+}
+
+
+h1 {
+    margin-bottom: 30px; /* Increased space below the title */
+}
+
+label {
+    margin-bottom: 10px; /* Increased space below labels */
+    display: block; /* Make labels block elements */
+}
+
+input[type="text"],
+input[type="password"] {
+    margin-bottom: 20px; /* Increased space below input fields */
+    width: calc(100% - 20px); /* Adjust width for padding */
+    padding: 10px; /* Padding for input fields */
+    border-radius: 4px; /* Slightly rounded corners for input fields */
+    border: 1px solid #ccc; /* Border for input fields */
+}
+
+input[type="submit"],
+input[type="reset"] {
+    margin-top: 10px; /* Space above buttons */
+    padding: 10px 15px; /* Padding for buttons */
+    border-radius: 4px; /* Rounded corners for buttons */
+    border: none; /* Remove border */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+input[type="submit"] {
+    background-color: #4CAF50; /* Green background for submit */
+    color: white; /* White text for submit */
+}
+
+input[type="reset"] {
+    background-color: #f44336; /* Red background for reset */
+    color: white; /* White text for reset */
+}
+
+footer {
+    padding-top: 20%;
+    text-align: center;
+}
+
+.footer-box {
+    padding-top: 20px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-header h3 {
+    margin-top: 0;
+    color: #000;
+}
+
+.footer-content {
+    margin: 20px 0;
+}
+
+.footer-info,
+.footer-helpdesk {
+    margin: 10px 0;
+}
+
+.footer-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+.footer-cta {
+    margin-top: 20px;
+}
+
+.footer-cta h4 {
+    margin: 10px 0;
+    color: #000;
+}
+
+.footer-cta a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.footer-cta a:hover {
+    text-decoration: underline;
+}

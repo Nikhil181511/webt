@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #000;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .video-container {
+            padding: 5px;
+            width: 100%;
+            max-height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        footer {
+            padding-top: 20%;
+            background-color: #fbfbfb;
+            border-top: 1px solid #ddd;
+            margin-top: auto;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-header h3 {
+            margin-top: 0;
+            color: #000;
+        }
+
+        .footer-content {
+            margin: 20px 0;
+        }
+
+        .footer-info,
+        .footer-helpdesk {
+            margin: 10px 0;
+        }
+
+        .footer-link {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            font-family: 'Times New Roman', Times, serif;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            max-width: 100%;
+            margin: 0 auto;
+            background-color: white;
+        }
+
+        .text-section {
+            flex: 1;
+            padding-right: 30px;
+        }
+
+        .text-section h1 {
+            font-family: fantasy;
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .text-section p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #ebae06;
+            color: rgb(16, 15, 15);
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 25px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .btn:hover {
+            background-color: #333;
+            color: white;
+        }
+
+        .image-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .image-large {
+            height: 42%;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .image-small {
+            padding: 8px;
+            width: 45%;
+            margin: 5px;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .text-section {
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .image-section {
+                align-items: center;
+            }
+
+            .image-small {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="v1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="overlay"></div> 
+    <div class="container">
+        <div class="text-section">
+            <h1>WELCOME TO RajHotel Management</h1>
+            <p>
+                The RajHotel Management website provides a comprehensive platform
+                for both guests and hotel staff to efficiently manage various aspects
+                of their stay and operations. Guests can easily make reservations,
+                check room availability, and customize their bookings with options
+                for meals and additional services. The website offers a user-friendly
+                interface where guests can view amenities, browse room types, and make
+                secure online payments.<br><br>
+                For hotel staff and management, the system includes features such as
+                real-time room status updates, inventory management for food and
+                supplies, and scheduling of housekeeping and maintenance tasks. It
+                facilitates seamless communication between departments, ensuring smooth
+                operations and enhancing guest satisfaction.<br><br>
+                Additionally, the website provides analytical tools to track bookings,
+                revenue, and guest feedback, enabling managers to make data-driven
+                decisions to improve service quality and optimize hotel performance.
+            </p>
+            <center>
+                <a href="temp.html" class="btn"><b>Get Started</b></a>
+            </center>
+            <div style="display: flex; justify-content: center; width: 100%; gap: 10px; flex-wrap: wrap;">
+                <img src="15.jpg" alt="Small Hotel Image 1" class="image-small">
+                <img src="16.jpg" alt="Small Hotel Image 2" class="image-small">
+            </div>
+        </div>
+        <div class="image-section">
+            <img src="14.jpg" alt="Large Hotel Image" class="image-large">
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-box">
+            <div class="footer-header">
+                <h3>Write to Us</h3>
+            </div>
+            <div class="footer-content">
+                <p class="footer-info">
+                    INFO: <a class="footer-link" href="mailto:RajHotel123@gmail.com">RajHotel123@gmail.com</a> /
+                    <a class="footer-link" href="tel:9018759973">9018759973</a>
+                </p>
+                <p class="footer-helpdesk">
+                    Helpdesk websites, email, domains: <a class="footer-link"
+                        href="mailto:assist@Rajhotels.com">mailto:assist@Rajhotels.com</a>
+                </p>
+                <p class="footer-helpdesk">
+                    Helpdesk booking engine: <a class="footer-link"
+                        href="mailto:helpdesk@Rajhotels.com">helpdesk@Rajhotels.com</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
