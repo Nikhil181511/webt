@@ -12,22 +12,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
-        $storedPassword = $user['password']; // Directly using the stored password
-
-        // Compare the plain-text password directly
+        $storedPassword = $user['password']; 
         if ($password === $storedPassword) {
-            // Start session
             session_start();
-            $_SESSION['user_email'] = $email; // Store user email in session
-
-            // Redirect to userinterface.html
+            $_SESSION['user_email'] = $email;
             header("Location: staff.php");
-            exit(); // Make sure to call exit after header redirect
+            exit(); 
         } else {
-            echo "Invalid credentials."; // Wrong password
+            echo "Invalid credentials."; 
         }
     } else {
-        echo "Invalid credentials."; // Email not found
+        echo "Invalid credentials.";
     }
 
     $stmt->close();

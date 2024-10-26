@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #000;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .video-container {
+            padding: 5px;
+            width: 100%;
+            max-height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        footer {
+            padding-top: 20%;
+            background-color: #fbfbfb;
+            border-top: 1px solid #ddd;
+            margin-top: auto;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-header h3 {
+            margin-top: 0;
+            color: #000;
+        }
+
+        .footer-content {
+            margin: 20px 0;
+        }
+
+        .footer-info,
+        .footer-helpdesk {
+            margin: 10px 0;
+        }
+
+        .footer-link {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            padding: 5px;
+            display: flex;
+            justify-content: space-between; /* Align text and images side by side */
+            max-width: 100%;
+            margin: 0 auto;
+            background-color: white;
+        }
+
+        .text-section {
+            flex: 1;
+            padding-right: 30px;
+        }
+
+        .text-section h1 {
+            font-family: fantasy;
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .text-section h2 {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 22px;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .text-section p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px; /* Reduced margin for better spacing */
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #1f1f1f;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-bottom: 20px; /* Space below button */
+        }
+
+        .btn:hover {
+            background-color: #333;
+        }
+
+        .image-section {
+            flex: 1; /* Allow the image section to grow */
+            display: flex;
+            flex-direction: column; /* Stack images vertically */
+            align-items: center; /* Center images */
+        }
+
+        .image-large {
+            height: 42%;
+            width: 100%; /* Full width for large image */
+            margin-bottom: 10px; /* Space below the large image */
+        }
+
+        .image-small {
+            padding: 8px;
+            width: 45%; /* Adjusted width for small images to make them bigger */
+            margin: 5px; /* Space between small images */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column; /* Stack text and image sections on mobile */
+                padding: 20px;
+            }
+
+            .text-section {
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .image-section {
+                align-items: center; /* Center images */
+            }
+
+            .image-small {
+                width: 100%; /* Full width for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Section -->
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="v1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="overlay"></div> <!-- Overlay for transparency -->
+    
+    <!-- Main Content Section -->
+    <div class="container">
+        <!-- Left Text Section -->
+        <div class="text-section">
+            <h1>WELCOME TO HARMONY SUITES</h1>
+            <h2>Book Your Dream Getaway</h2>
+            <p>
+                Nestled in the vibrant heart of Secaucus, New Jersey, Harmony Suites welcomes you to a world of refined indulgence. Immerse yourself in the pinnacle of comfort, just moments away from the iconic American Dream Mall, where shopping fantasies come to life. Feel the exhilaration of being near the legendary MetLife Stadium, home to unforgettable events.
+                <br><br>
+                Our lavish accommodations and personalized service promise a stay beyond compare. Embrace the perfect blend of convenience and luxury, where every moment is a cherished memory in the making. Your journey to opulence begins at Harmony Suites. Book your escape today!
+            </p>
+            <a href="#" class="btn">Explore Our Hotel</a>
+
+            <div style="display: flex; justify-content: center; width: 100%; gap: 10px; flex-wrap: wrap;">
+                <img src="15.jpg" alt="Small Hotel Image 1" class="image-small">
+                <img src="16.jpg" alt="Small Hotel Image 2" class="image-small">
+            </div>
+        </div>
+
+        <!-- Right Image Section -->
+        <div class="image-section">
+            <img src="14.jpg" alt="Large Hotel Image" class="image-large">
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-box">
+            <div class="footer-header">
+                <h3>Write to Us</h3>
+            </div>
+            <div class="footer-content">
+                <p class="footer-info">
+                    INFO: <a class="footer-link" href="mailto:RajHotel123@gmail.com">RajHotel123@gmail.com</a> / 
+                    <a class="footer-link" href="tel:9018759973">9018759973</a>
+                </p>
+                <p class="footer-helpdesk">
+                    Helpdesk websites, email, domains: <a class="footer-link" href="mailto:assist@Rajhotels.com">mailto:assist@Rajhotels.com</a>
+                </p>
+                <p class="footer-helpdesk">
+                    Helpdesk booking engine: <a class="footer-link" href="mailto:helpdesk@Rajhotels.com">helpdesk@Rajhotels.com</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,18 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root"; // Default username
-$password = ""; // Default password
-$dbname = "hotel_management"; // Your database name
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Handle form submissions
+include 'db.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['insert'])) {
         // Insert a new record
@@ -20,25 +7,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $gmail = $_POST['gmail'];
         $phoneno = $_POST['phoneno'];
         $salary = $_POST['salary'];
-        $duty = $_POST['duty']; // New duty field
+        $duty = $_POST['duty']; 
         $stmt = $conn->prepare("INSERT INTO staffmembers (name, gmail, phoneno, salary, duty) VALUES (?, ?, ?, ?, ?)");
         $stmt->bind_param("sssss", $name, $gmail, $phoneno, $salary, $duty);
         $stmt->execute();
         $stmt->close();
     } elseif (isset($_POST['update'])) {
-        // Update an existing record
         $id = $_POST['id'];
         $name = $_POST['name'];
         $gmail = $_POST['gmail'];
         $phoneno = $_POST['phoneno'];
         $salary = $_POST['salary'];
-        $duty = $_POST['duty']; // New duty field
+        $duty = $_POST['duty']; 
         $stmt = $conn->prepare("UPDATE staffmembers SET name=?, gmail=?, phoneno=?, salary=?, duty=? WHERE id=?");
         $stmt->bind_param("sssssi", $name, $gmail, $phoneno, $salary, $duty, $id);
         $stmt->execute();
         $stmt->close();
     } elseif (isset($_POST['delete'])) {
-        // Delete a record
         $id = $_POST['id'];
         $stmt = $conn->prepare("DELETE FROM staffmembers WHERE id=?");
         $stmt->bind_param("i", $id);
@@ -47,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-// Fetch records
 $result = $conn->query("SELECT * FROM staffmembers");
 ?>
 
@@ -59,42 +43,42 @@ $result = $conn->query("SELECT * FROM staffmembers");
     <title>Staff Members</title>
     <style>
        body {
-    background-image: url('8.jpg'); /* Set your background image */
-    background-size: cover; /* Cover the entire viewport */
+    background-image: url('8.jpg'); 
+    background-size: cover;
     background-repeat: no-repeat;
     display: flex;
     background-size: cover;
     background-position: center;
     background-repeat:no-repeat;
     flex-direction: column;
-    align-items: center; /* Center-align items horizontally */
-    justify-content: flex-start; /* Align items at the top */
-    min-height: 100vh; /* Full height with minimum */
-    margin: 0; /* Remove default margin */
-    color: black; /* Text color for visibility */
+    align-items: center; 
+    justify-content: flex-start; 
+    min-height: 100vh; 
+    margin: 0; 
+    color: black; 
 }
 
 .container {
-    background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+    background-color: rgba(255, 255, 255, 0.8); 
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    width: 92%; /* Width of the form and table */
-    margin: 40px 0; /* Space at the top, bottom for footer */
+    width: 92%;
+    margin: 40px 0; 
 }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px; /* Space between form and table */
-            border: 2px solid black; /* Black border around the table */
+            margin-top: 20px; 
+            border: 2px solid black; 
         }
         th, td {
-            border: 1px solid black; /* Black border for table cells */
+            border: 1px solid black; 
             padding: 8px;
             text-align: left;
         }
         button {
-            margin-top: 10px; /* Space above buttons */
+            margin-top: 10px; 
         }
         
         footer {

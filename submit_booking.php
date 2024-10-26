@@ -1,18 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root"; // Default username
-$password = ""; // Default password
-$dbname = "hotel_management"; // Your database name
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Function to generate a unique hotel number
+include 'db.php';
 function generateUniqueHotelNo($conn) {
     $hotel_no = null;
     $existing_numbers = [];
@@ -41,6 +28,8 @@ $numPeople = (int)$_POST['numPeople'];
 $bookingDate = htmlspecialchars($_POST['bookingDate']);
 $num_days = (int)$_POST['No_Date'];
 $comments = htmlspecialchars($_POST['comments']);
+$spaCost = isset($_POST['spa']) ? 1000 : 0;
+$breakfastCost = isset($_POST['breakfast']) ? 500 : 0;
 
 // Room cost mapping
 $roomCosts = [
@@ -56,12 +45,13 @@ if($room_type == 1) {
 } else {
     $type = 'Suite';
 }
-
 // Calculate the total cost for the stay based on the number of days
 $roomCost = isset($roomCosts[$room_type]) ? $roomCosts[$room_type] : 0;
-$totalCost = $roomCost * $num_days;
-
+$breakfastCost = isset($_POST['breakfast']) ? 500 : 0;
+$perPersonCost = ($spaCost + $breakfastCost) * $numPeople; 
+$totalCost = ($roomCost * $num_days) + $perPersonCost;
 // Prepare the statement
+var_dump($_POST['comments']);
 $stmt = $conn->prepare("INSERT INTO bookings (name, hotel_no, room_type, num_people, booking_date, num_days, comments, total_cost) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 if ($stmt === false) {
     die('Prepare failed: ' . htmlspecialchars($conn->error));
@@ -87,7 +77,7 @@ if ($stmt->execute()) {
                 flex-direction: column; /* Allow vertical stacking */
                 min-height: 100vh; /* Ensure body takes at least full viewport height */
                 margin: 0;
-                background-image: url("9.jpg");
+                background-image: url("17.jpg");
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;

@@ -14,8 +14,6 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            justify-content: center; /* Center content vertically */
-            align-items: center; 
         }
 
         .slideshow-container {
@@ -34,7 +32,6 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
         }
 
         .mySlides img {
@@ -53,25 +50,23 @@
         }
 
         .container {
-            width:60%;
+            max-width: 600px;
             margin: 0 auto;
-            margin-top: 15%;
-            padding-top: 15%;
+            padding: 20px;
+            background-color: rgba(209, 201, 201, 0.8);
+            border: 1px solid rgba(221, 221, 221, 0.7);
             border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             position: relative;
             z-index: 2;
             margin-top: 20px;
-           
+            margin-bottom: 5%; /* Added margin-bottom for spacing */
         }
 
         .login-buttons {
-            font-family: 'Times New Roman', Times, serif;
-            height: 50%;
-            width:100%;
-            background-color: #b0b0b0c7;
             text-align: center;
-            font-size: 40px;
-           
+            margin-top: 20px;
+            padding: 10% 0;
         }
 
         .login-button {
@@ -79,7 +74,7 @@
             padding: 10px 20px;
             margin: 5px;
             border-radius: 5px;
-            color: #0b0b0b;
+            color: #fff;
             text-decoration: none;
             font-size: 16px;
             transition: opacity 0.3s ease;
@@ -87,8 +82,7 @@
         }
 
         .login-button.admin {
-            
-            background-color: #09f047;
+            background-color: #10da3f;
         }
 
         .login-button.user {
@@ -96,18 +90,14 @@
         }
 
         .login-button:hover {
-            color: #ddd;
-            background-color: #000;
-            
+            opacity: 0.9;
         }
 
         footer {
-            
             background-color: #dfd8d8;
             border-top: 1px solid #ddd;
-            margin-top: 20%;
+            margin-top: auto;
             padding: 20px 0;
-            width:100%;
             text-align: center;
         }
 
@@ -133,30 +123,27 @@
         .footer-link:hover {
             text-decoration: underline;
         }
-        .cap{
-            font-family: 'Times New Roman', Times, serif;
-            background-color: #dfd8d8;
-            width: 100%;
-            height: 20%;
-            align-content: center;
-            align-self: center;
-            text-align: center;
-        }
 
     </style>
 </head>
 <body>
     <div class="slideshow-container">
+        <!-- Slide 1 -->
         <div class="mySlides fade">
             <img src="1.jpg" alt="Image 1">
         </div>
+
+        <!-- Slide 2 -->
         <div class="mySlides fade">
             <img src="11.jpg" alt="Image 2">
         </div>
+
+        <!-- Slide 3 -->
         <div class="mySlides fade">
             <img src="12.jpg" alt="Image 3">
         </div>
 
+        <!-- Slide 4 -->
         <div class="mySlides fade">
             <img src="13.jpg" alt="Image 4">
         </div>
@@ -165,14 +152,31 @@
     <div class="overlay"></div> <!-- Overlay for transparency -->
     
     <div class="container">
-        <div class="cap">
-            <h1 style="color: rgb(16, 3, 69);text-align: center;">
-                <strong>Continue As </strong>
-            </h1>
+        <center>
+            <h1 class="title">Hotel Management System</h1>
+        </center>
+        <div id="desc">
+            <p>
+                The Hotel Management System website provides a comprehensive platform
+                for both guests and hotel staff to efficiently manage various aspects
+                of their stay and operations. Guests can easily make reservations,
+                check room availability, and customize their bookings with options
+                for meals and additional services. The website offers a user-friendly
+                interface where guests can view amenities, browse room types, and make
+                secure online payments.<br><br>
+                For hotel staff and management, the system includes features such as
+                real-time room status updates, inventory management for food and
+                supplies, and scheduling of housekeeping and maintenance tasks. It
+                facilitates seamless communication between departments, ensuring smooth
+                operations and enhancing guest satisfaction.<br><br>
+                Additionally, the website provides analytical tools to track bookings,
+                revenue, and guest feedback, enabling managers to make data-driven
+                decisions to improve service quality and optimize hotel performance.
+            </p>
         </div>
         <div class="login-buttons">
-                <a href="admin.php" class="login-button admin"><b>Admin </b></a>
-            <a href="User.html" class="login-button user"><b>User</b></a>
+            <a href="admin.php" class="login-button admin">Admin Login</a>
+            <a href="User.html" class="login-button user">User Login</a>
         </div>
     </div>
 

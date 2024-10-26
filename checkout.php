@@ -1,18 +1,6 @@
 <?php
-// Database connection
-$servername = "localhost";
-$username = "root"; // Default username
-$password = ""; // Default password
-$dbname = "hotel_management"; // Your database name
+include 'db.php';
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Query to fetch bookings
 $sql = "SELECT name, hotel_no, room_type,num_days, num_people, booking_date, comments, total_cost FROM bookings";
 $result = $conn->query($sql);
 ?>
@@ -23,7 +11,6 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Table Bookings</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
 </head>
 <style>
     body {
@@ -152,7 +139,6 @@ footer {
                 if ($result->num_rows > 0) {
                     // Output data of each row
                     while($row = $result->fetch_assoc()) {
-                        $comments = empty($row['comments']) ? '   ---  ' : $row['comments'];
                         echo "<tr>
                                 <td>{$row['name']}</td>
                                 <td>{$row['hotel_no']}</td>
@@ -160,7 +146,7 @@ footer {
                                 <td>{$row['num_days']}</td>
                                 <td>{$row['num_people']}</td>
                                 <td>{$row['booking_date']}</td>
-                                <td>{$comments}</td>
+                                <td>{$row['comments']}</td>
                                 <td>{$row['total_cost']}</td>
                               </tr>";
                     }

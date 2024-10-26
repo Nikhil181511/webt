@@ -13,15 +13,15 @@
 
             if (username.trim() === "") {
                 alert("Enter username");
-                return false; // Prevent form submission
+                return false;
             } else if (pas1 === "" || pas2 === "") {
                 alert("Enter password");
-                return false; // Prevent form submission
+                return false; 
             } else if (pas1 === pas2) {
-                return true; // Allow form submission
+                return true; 
             } else {
                 alert("Passwords didn't match");
-                return false; // Prevent form submission
+                return false; 
             }
         }
     </script>
