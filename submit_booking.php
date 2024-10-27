@@ -50,8 +50,6 @@ $roomCost = isset($roomCosts[$room_type]) ? $roomCosts[$room_type] : 0;
 $breakfastCost = isset($_POST['breakfast']) ? 500 : 0;
 $perPersonCost = ($spaCost + $breakfastCost) * $numPeople; 
 $totalCost = ($roomCost * $num_days) + $perPersonCost;
-// Prepare the statement
-var_dump($_POST['comments']);
 $stmt = $conn->prepare("INSERT INTO bookings (name, hotel_no, room_type, num_people, booking_date, num_days, comments, total_cost) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 if ($stmt === false) {
     die('Prepare failed: ' . htmlspecialchars($conn->error));
